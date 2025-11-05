@@ -1,6 +1,6 @@
 import os
 from PIL import Image
-from base_processor import BaseProcessor
+from processors.base_processor import BaseProcessor
 
 class ImageProcessor(BaseProcessor):
 
@@ -12,7 +12,7 @@ class ImageProcessor(BaseProcessor):
         try:
             with Image.open(file_path) as img:
                 result = {
-                    "processor": self.processor_name,
+                    "processor": self.process_name,
                     "success": True,
                     "stats": {
                         "format": img.format,
@@ -26,11 +26,11 @@ class ImageProcessor(BaseProcessor):
                 return result
         except Exception as e:
             return {
-                "processor": self.processor_name,
+                "processor": self.process_name,
                 "success": False,
                 "error": str(e)
             }
         
     @property
-    def processor_name(self) -> str:
+    def process_name(self) -> str:
         return "Image Processor"

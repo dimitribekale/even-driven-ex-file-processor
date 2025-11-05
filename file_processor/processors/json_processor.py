@@ -1,6 +1,6 @@
 import os
 import json
-from base_processor import BaseProcessor
+from processors.base_processor import BaseProcessor
 
 class JSONProcessor(BaseProcessor):
 
@@ -14,7 +14,7 @@ class JSONProcessor(BaseProcessor):
                 data = json.load(f)
 
             result = {
-                "processor": self.processor_name,
+                "processor": self.process_name,
                 "success": True,
                 "stats": {
                     "type": type(data).__name__,
@@ -27,11 +27,11 @@ class JSONProcessor(BaseProcessor):
         
         except Exception as e:
             return {
-                "processor": self.processor_name,
+                "processor": self.process_name,
                 "success": False,
                 "error": str(e)
             }
         
     @property
-    def processor_name(self) -> str:
+    def process_name(self) -> str:
         return "JSON Processor"

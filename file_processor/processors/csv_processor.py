@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from base_processor import BaseProcessor
+from processors.base_processor import BaseProcessor
 
 class CSVProcessor(BaseProcessor):
 
@@ -13,8 +13,8 @@ class CSVProcessor(BaseProcessor):
             df = pd.read_csv(file_path)
 
             result = {
-                "processor": self.processor_name,
-                "succes": True,
+                "processor": self.process_name,
+                "success": True,
                 "stats": {
                     "rows": len(df),
                     "columns": len(df.columns),
@@ -27,10 +27,10 @@ class CSVProcessor(BaseProcessor):
         
         except Exception as e:
             return {
-                "processor": self.processor_name,
+                "processor": self.process_name,
                 "success": False,
                 "error": str(e)
             }
     @property
-    def processor_name(self) -> str:
+    def process_name(self) -> str:
         return "CSV Processor"

@@ -2,6 +2,14 @@
 
 A Python application demonstrating Event-Driven Architecture (EDA) with real-time file processing and visualization.
 
+> **Note**: This is a practical exercise to understand event-driven architecture concepts through hands-on implementation.
+
+## Demo
+
+![Application Demo](demo_image/Screenshot%202025-11-04%20at%2011.54.21%20PM.png)
+
+The web interface shows real-time event streaming as files are uploaded and processed through the system.
+
 ## Features
 
 - **Event-Driven Architecture**: Built with a custom event bus using publish-subscribe pattern

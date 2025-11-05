@@ -1,5 +1,5 @@
 import os
-from base_processor import BaseProcessor
+from processors.base_processor import BaseProcessor
 
 
 class TextProcessor(BaseProcessor):
@@ -16,7 +16,7 @@ class TextProcessor(BaseProcessor):
             lines = content.split("\n")
             words = content.split()
             result = {
-                "processor": self.processor_name,
+                "processor": self.process_name,
                 "success": True,
                 "stats": {
                     "lines": len(lines),
@@ -26,15 +26,15 @@ class TextProcessor(BaseProcessor):
                 },
                 "preview": content[:500] + "..." if len(content) > 500 else content
             }
-            return content
+            return result
         
         except Exception as e:
             return {
-                "processor": self.processor_name,
+                "processor": self.process_name,
                 "success": False,
                 "error": str(e)
             }
         
     @property
-    def processor_name(self) -> str:
+    def process_name(self) -> str:
         return "Text Processor"

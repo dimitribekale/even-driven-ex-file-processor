@@ -42,7 +42,7 @@ class ProcessorManager:
                         data={
                             "file_name": file_path,
                             "file_path": file_path,
-                            "processor": processor.processor.name,
+                            "processor": processor.process_name,
                             "result": result
                         }
                     )
